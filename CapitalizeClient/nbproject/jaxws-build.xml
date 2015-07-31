@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?><!--
+        *** GENERATED FROM jax-ws.xml - DO NOT EDIT !                             ***
+        *** TO MODIFY wsimport options USE Web Service node -> Edit WS Attributes ***
+        *** TO CHANGE TARGETS GENERATED TO jaxws-build.xml COPY THOSE             ***
+        *** TARGETS TO ../build.xml AND MODIFY THAT FILE INSTEAD                  ***
+
+        --><project xmlns:xalan="http://xml.apache.org/xslt" xmlns:j2seproject3="http://www.netbeans.org/ns/j2se-project/3" xmlns:jaxws="http://www.netbeans.org/ns/jax-ws/1">
+    <!--
+                ===================
+                JAX-WS WSIMPORT SECTION
+                ===================
+            -->
+    <target name="wsimport-init" depends="init">
+        <mkdir dir="${build.generated.sources.dir}/jax-ws"/>
+        <taskdef name="wsimport" classname="com.sun.tools.ws.ant.WsImport">
+            <classpath path="${libs.jaxws21.classpath}"/>
+        </taskdef>
+    </target>
+    <target name="wsimport-client-Capitalize" depends="wsimport-init">
+        <mkdir dir="${build.generated.dir}/jax-wsCache/Capitalize"/>
+        <property name="wsdl-Capitalize" location="xml-resources/web-service-references/Capitalize/wsdl/localhost_665/Capitalize.wsdl"/>
+        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/Capitalize" destdir="${build.generated.dir}/jax-wsCache/Capitalize" wsdl="${wsdl-Capitalize}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:665/Capitalize?wsdl" xnocompile="true" xendorsed="true" package="capitalizeclient">
+            <depends file="${wsdl-Capitalize}"/>
+            <produces dir="${build.generated.dir}/jax-wsCache/Capitalize"/>
+        </wsimport>
+        <copy todir="${build.generated.sources.dir}/jax-ws">
+            <fileset dir="${build.generated.dir}/jax-wsCache/Capitalize">
+                <include name="**/*.java"/>
+            </fileset>
+        </copy>
+    </target>
+    <target name="wsimport-client-clean-Capitalize" depends="-init-project">
+        <delete dir="${build.generated.dir}/jax-wsCache/Capitalize"/>
+        <delete dir="${build.generated.sources.dir}/jax-ws/capitalizeclient"/>
+    </target>
+    <target name="wsimport-client-generate" depends="wsimport-client-Capitalize"/>
+</project>
